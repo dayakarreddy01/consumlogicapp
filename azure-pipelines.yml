@@ -6,7 +6,7 @@ pool:
 
 variables:
   azureServiceConnection: 'AzureServiceConnection'
-  resourceGroupName: 'my-resource-group'
+  resourceGroupName: 'dayakar'
   location: 'East US'
   templateFile: 'logicapp/arm-template.json'
   parametersFile: 'logicapp/parameters.json'
