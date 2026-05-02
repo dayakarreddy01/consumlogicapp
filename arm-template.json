@@ -1,21 +1,28 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "metadata": {
-    "_generator": {
-      "name": "bicep",
-      "version": "0.26.54.24096",
-      "templateHash": "6752251118022464427"
+
+  "parameters": {
+    "logicAppName": {
+      "type": "string"
+    },
+    "testUri": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
     }
   },
-   "variables": {
+
+  "variables": {
     "frequency": "Hour",
-    "interval": "1",
+    "interval": 1,
     "type": "recurrence",
     "actionType": "http",
     "method": "GET",
     "workflowSchema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#"
   },
+
   "resources": [
     {
       "type": "Microsoft.Logic/workflows",
@@ -26,6 +33,7 @@
         "displayName": "[parameters('logicAppName')]"
       },
       "properties": {
+        "state": "Enabled",
         "definition": {
           "$schema": "[variables('workflowSchema')]",
           "contentVersion": "1.0.0.0",
@@ -36,7 +44,7 @@
             }
           },
           "triggers": {
-            "recurrence": {
+            "Recurrence": {
               "type": "[variables('type')]",
               "recurrence": {
                 "frequency": "[variables('frequency')]",
@@ -45,7 +53,7 @@
             }
           },
           "actions": {
-            "actionType": {
+            "Http_Action": {
               "type": "[variables('actionType')]",
               "inputs": {
                 "method": "[variables('method')]",
@@ -57,6 +65,7 @@
       }
     }
   ],
+
   "outputs": {
     "name": {
       "type": "string",
