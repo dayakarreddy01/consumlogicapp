@@ -33,7 +33,7 @@
         "displayName": "[parameters('logicAppName')]"
       },
       "properties": {
-        "state": "Enabled",
+        "state": "Disabled",
         "definition": {
           "$schema": "[variables('workflowSchema')]",
           "contentVersion": "1.0.0.0",
