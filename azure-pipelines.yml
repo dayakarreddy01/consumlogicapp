@@ -8,8 +8,8 @@ variables:
   azureServiceConnection: 'AzureServiceConnection'
   resourceGroupName: 'dayakar'
   location: 'East US'
-  templateFile: 'logicapp/arm-template.json'
-  parametersFile: 'logicapp/parameters.json'
+  templateFile: 'arm-template.json'
+  parametersFile: 'parameters.json'
 
 stages:
 - stage: DeployLogicApp
