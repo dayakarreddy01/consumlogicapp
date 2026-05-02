@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  azureServiceConnection: 'AzureServiceConnection'
+  azureServiceConnection: 'azure-devops-connection'
   resourceGroupName: 'dayakar'
   location: 'East US'
   templateFile: 'logicapp/arm-template.json'
