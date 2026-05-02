@@ -1,0 +1,33 @@
+trigger:
+- main   # or your branch name
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  azureServiceConnection: 'Azure-Service-Connection-Name'
+  resourceGroupName: 'my-resource-group'
+  location: 'East US'
+  templateFile: 'logicapp/arm-template.json'
+  parametersFile: 'logicapp/parameters.json'
+
+stages:
+- stage: DeployLogicApp
+  displayName: Deploy Logic App ARM Template
+  jobs:
+  - job: ARMDeployment
+    displayName: ARM Deployment Job
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      displayName: Deploy ARM Template
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: $(azureServiceConnection)
+        subscriptionId: '<your-subscription-id>'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: $(resourceGroupName)
+        location: $(location)
+        templateLocation: 'Linked artifact'
+        csmFile: $(templateFile)
+        csmParametersFile: $(parametersFile)
+        deploymentMode: 'Incremental'
