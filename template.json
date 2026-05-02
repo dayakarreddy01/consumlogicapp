@@ -8,29 +8,7 @@
       "templateHash": "6752251118022464427"
     }
   },
-  "parameters": {
-    "logicAppName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the logic app to create."
-      }
-    },
-    "testUri": {
-      "type": "string",
-      "defaultValue": "https://azure.status.microsoft/status/",
-      "metadata": {
-        "description": "A test URI"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "variables": {
+   "variables": {
     "frequency": "Hour",
     "interval": "1",
     "type": "recurrence",
