@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  azureServiceConnection: 'Azure-Service-Connection-Name'
+  azureServiceConnection: 'AzureServiceConnection'
   resourceGroupName: 'my-resource-group'
   location: 'East US'
   templateFile: 'logicapp/arm-template.json'
